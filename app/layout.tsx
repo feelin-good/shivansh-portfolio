@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: "Shivansh Malik — Designer & Developer",
   description:
     "Portfolio of Shivansh Malik — 3D Designer, Web & App Designer, and Web Developer.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
   openGraph: {
     title: "Shivansh Malik — Designer & Developer",
     description: "3D Designer · Web & App Designer · Developer",

@@ -1,18 +1,24 @@
 "use client";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const ThreeScene = dynamic(() => import("./ThreeScene"), { ssr: false });
 
 const roles = ["3D Designer", "Web & App Designer", "Web Developer"];
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-      {/* Subtle radial glow */}
+      {/* Three.js background */}
+      <ThreeScene />
+
+      {/* Subtle radial glow on top of the scene */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255,255,255,0.04) 0%, transparent 70%)",
+            "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,0,0,0.55) 0%, transparent 80%)",
         }}
       />
 
@@ -20,7 +26,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 32 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="max-w-4xl"
+        className="relative z-10 max-w-4xl"
       >
         <motion.p
           initial={{ opacity: 0 }}
@@ -84,7 +90,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.8 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
         <span className="text-[10px] tracking-[0.2em] uppercase text-[#3d3d3f]">
           Scroll
